@@ -4,7 +4,8 @@
 	<div class="form-row">
 		<div class="form-group col-md-1">
 			<label for="id">Id</label>
-			<input type="text" [(ngModel)]="usuario.id" class="form-control" id="id" name="id" readonly="true" autocomplete="false">
+			<input type="text" [(ngModel)]="usuario.id" class="form-control" id="id" name="id" readonly="true"
+				autocomplete="false">
 		</div>
 	</div>
 
@@ -12,14 +13,16 @@
 		<div class="form-group col-md-2">
 			<label for="nome">Nome</label>
 			<span style="color: red;" *ngIf="nomeValidate.invalid"> *</span>
-			<input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nome" name="nome" autocomplete="false" required="true" #nomeValidate="ngModel">
+			<input type="text" [(ngModel)]="usuario.nome" class="form-control" id="nome" name="nome"
+				autocomplete="false" required="true" #nomeValidate="ngModel">
 		</div>
 	</div>
 
 	<div class="form-row">
 		<div class="form-group col-md-2">
 			<label for="login">Login ou email</label>
-			<input type="text" [(ngModel)]="usuario.login" class="form-control" id="login" name="login" autocomplete="false" required="true">
+			<input type="text" [(ngModel)]="usuario.login" class="form-control" id="login" name="login"
+				autocomplete="false" required="true">
 		</div>
 	</div>
 
@@ -30,22 +33,36 @@
 		</div>
 	</div>
 
+	<div class="form-row">
+		<div class="form-group col-md-2">
+			<label for="dataNascimento">Data Nascimento</label>
+			<div class="input-group">
+				<input type="text" class="form-control" id="dataNascimento" name="dataNascimento" autocomplete="false"
+					ngbDatepicker #dataNascimento="ngbDatepicker" [(ngModel)]="usuario.dataNascimento">
+				<div class="input-group-append">
+					<button class="btn-btn-primary" (click)="dataNascimento.toggle()" type="button"></button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="form-row">
 		<div class="form-group col-md-1">
 			<label for="senha">Senha</label>
-			<input type="password" [(ngModel)]="usuario.senha" class="form-control" id="senha" name="senha" autocomplete="false" required="true">
+			<input type="password" [(ngModel)]="usuario.senha" class="form-control" id="senha" name="senha"
+				autocomplete="false" required="true">
 		</div>
 	</div>
 
-	
+
 	<div class="card text-center">
 		<div class="card-header">
 			Telefone Contato
 		</div>
 		<div class="card-body form-row" style="padding-left: 1px;">
 			<div class="form-group col-md-2">
-				<input type="text" mask="(00) 0 0000-0000" class="form-control" [(ngModel)]="telefone.numero" id="numero" name="numero" placeholder="digite um numero de telefone">
+				<input type="text" mask="(00) 0 0000-0000" class="form-control" [(ngModel)]="telefone.numero"
+					id="numero" name="numero" placeholder="digite um numero de telefone">
 			</div>
 			<div class="form-group col-md-1">
 				<button class="btn btn-primary mb-2" (click)="addFone()">Adicionar</button>
@@ -56,10 +73,10 @@
 
 	<table class="table">
 		<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">NUMERO</th>
-				</tr>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">NUMERO</th>
+			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let fone of usuario.telefones; let i = index">
@@ -73,9 +90,11 @@
 
 	<div class="form-row">
 		<div class="form-group col-md-3">
-			<button type="button" class="btn btn-primary" [routerLink]="['/usuarioList']" routerLinkActive="router-link-active">Voltar</button>
+			<button type="button" class="btn btn-primary" [routerLink]="['/usuarioList']"
+				routerLinkActive="router-link-active">Voltar</button>
 			<button type="button" (click)="novo()" class="btn btn-primary" style="margin-left: 5px;">Novo</button>
-			<button type="button" (click)="saveUser()" class="btn btn-success" style="margin-left: 5px;" [disabled]="formValidate.invalid">Salvar</button>
+			<button type="button" (click)="saveUser()" class="btn btn-success" style="margin-left: 5px;"
+				[disabled]="formValidate.invalid">Salvar</button>
 		</div>
 	</div>
 </form>
