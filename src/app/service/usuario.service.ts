@@ -16,11 +16,19 @@ export class UsuarioService {
   }
 
 
-
-
   getStudentListPage(pagina): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrl + 'page/' + pagina);
   }
+
+
+
+    getProfissaoList(): Observable<any> {
+    return this.http.get<any>(AppConstants.getBaseUrlPath + 'profissao/');
+  }
+
+
+  
+
 
   deletarUsuario(id: Number): Observable<any> {
     return this.http.delete(AppConstants.baseUrl + id, { responseType: 'text' });

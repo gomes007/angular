@@ -46,6 +46,16 @@
 		</div>
 	</div>
 
+
+	<div class="form-row">
+		<div class="form-group col-md-3">
+			<label for="profissao">Profissao</label>
+			<select [(ngModel)]="usuario.profissao.id" class="form-control" id="profissao" name="profissao" autocomplete="false">
+				<option [ngValue]="p.id" *ngFor="let p of profissoes">{{p.descricao}}</option>
+			</select>
+		</div>
+	</div>
+
 	<div class="form-row">
 		<div class="form-group col-md-1">
 			<label for="senha">Senha</label>

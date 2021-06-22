@@ -1,4 +1,5 @@
 import { Telefone } from './telefone';
+import { Profissao } from './Profissao';
 
 export class User {
 id: Number;
@@ -9,6 +10,8 @@ senha: String;
 dataNascimento: String;
 
 telefones: Array<Telefone>;
+
+profissao: Profissao = new Profissao();
 
 }
 
