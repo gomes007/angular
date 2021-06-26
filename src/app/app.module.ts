@@ -13,7 +13,8 @@ import { UsuarioComponent } from './componente/usuario/usuario/usuario.component
 import { UsuarioAddComponent } from './componente/usuario/usuario-add/usuario-add.component';
 import { GuardiaoGuard } from './service/guardiao.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxCurrencyModule } from "ngx-currency";
 
 
 export const appRouters: Routes = [
@@ -46,7 +47,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     routes,
     HttpInterceptorModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
+    NgxCurrencyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

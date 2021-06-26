@@ -56,6 +56,16 @@
 		</div>
 	</div>
 
+
+	<div class="form-row">
+		<div class="form-group col-md-2">
+			<label for="salario">Salario:</label>
+			<input type="text" [(ngModel)]="usuario.salario" class="form-control" id="salario" name="salario" autocomplete="false"
+			currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+		</div>
+	</div>	
+	
+
 	<div class="form-row">
 		<div class="form-group col-md-1">
 			<label for="senha">Senha</label>

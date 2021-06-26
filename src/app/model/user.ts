@@ -8,6 +8,7 @@ nome: String;
 cpf: String;
 senha: String;
 dataNascimento: String;
+salario: DoubleRange;
 
 telefones: Array<Telefone>;
 
