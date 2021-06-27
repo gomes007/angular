@@ -22,7 +22,7 @@ export class UsuarioService {
 
 
 
-    getProfissaoList(): Observable<any> {
+  getProfissaoList(): Observable<any> {
     return this.http.get<any>(AppConstants.getBaseUrlPath + 'profissao/');
   }
 
@@ -55,16 +55,25 @@ export class UsuarioService {
 
 
   removerTelefone(id: Number): Observable<any> {
-    return this.http.delete(AppConstants.baseUrl + 'removerTelefone/' + id, {responseType: 'text'});
+    return this.http.delete(AppConstants.baseUrl + 'removerTelefone/' + id, { responseType: 'text' });
   }
 
 
-   userAutenticado() {
+  userAutenticado() {
     if (localStorage.getItem('token') !== null && localStorage.getItem('token').toString().trim() !== null) {
       return true;
     } else {
       return false;
     }
   }
+
+
+  downloadPdfRelatorio() {
+    return this.http.get(AppConstants.baseUrl + 'relatorio', { responseType: 'text' }).subscribe(data => {
+      document.querySelector('iframe').src = data;
+    });
+  }
+
+
 
 }

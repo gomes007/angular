@@ -5,8 +5,12 @@
 	<div class="form-group mx-sm-3 mb-2">
 		<input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="nome" placeholder="digite um nome">
 	</div>
-	<button type="button" (click)="consultarUser()" class="btn btn-primary mb-2">Buscar</button> 
+	<button type="button" (click)="consultarUser()" class="btn btn-primary mb-2">Buscar</button>
 	<button type="button" [routerLink]="['/usuarioAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;" class="btn btn-success mb-2">Novo</button>
+
+	<!-- Button trigger modal -->
+	<button (click)="imprimeRelatorio()" type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal" style="margin-left: 5px;">PDF</button>
+
 </form>
 
 <br />
@@ -20,17 +24,19 @@
 			<th scope="col">LOGIN</th>
 			<th scope="col">CPF</th>
 			<th scope="col">APAGAR</th>
-			<th scope="col">EDITAR</th> 
+			<th scope="col">EDITAR</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let student of students | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }; let i = index">
+		<tr
+			*ngFor="let student of students | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total }; let i = index">
 			<td>{{student.id}}</td>
 			<td>{{student.nome}}</td>
 			<td>{{student.login}}</td>
 			<td>{{student.cpf}}</td>
 			<td><button (click)="deleteUsuario(student.id, i)" class="btn btn-danger">Delete</button></td>
-			<td><button [routerLink]="['/usuarioAdd', student.id]" routerLinkActive="router-link-active"  class="btn btn-warning">Editar</button></td>
+			<td><button [routerLink]="['/usuarioAdd', student.id]" routerLinkActive="router-link-active"
+					class="btn btn-warning">Editar</button></td>
 		</tr>
 	</tbody>
 </table>
@@ -38,3 +44,27 @@
 <div class="text-center">
 	<pagination-controls (pageChange)="carregarPagina(p = $event);" responsive="true"></pagination-controls>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="min-width: 90%; min-height: 90%; height: 90%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PDF</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdf" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
