@@ -15,6 +15,9 @@ import { GuardiaoGuard } from './service/guardiao.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgxCurrencyModule } from "ngx-currency";
+import { UsuarioReportComponent } from './componente/usuario/usuario-report/usuario-report.component';
+import {ChartsModule} from 'ng2-charts';
+
 
 
 export const appRouters: Routes = [
@@ -24,7 +27,8 @@ export const appRouters: Routes = [
   { path: '', component: LoginComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioList', component: UsuarioComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuarioAdd', component: UsuarioAddComponent, canActivate: [GuardiaoGuard] },
-  { path: 'usuarioAdd/:id', component: UsuarioAddComponent, canActivate: [GuardiaoGuard] }
+  { path: 'usuarioAdd/:id', component: UsuarioAddComponent, canActivate: [GuardiaoGuard] },
+  { path: 'userReport', component: UsuarioReportComponent, canActivate: [GuardiaoGuard] },
 
 ];
 
@@ -38,7 +42,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     HomeComponent,
     LoginComponent,
     UsuarioComponent,
-    UsuarioAddComponent
+    UsuarioAddComponent,
+    UsuarioReportComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     HttpInterceptorModule,
     NgxPaginationModule,
     NgbModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

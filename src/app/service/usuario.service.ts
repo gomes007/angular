@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AppConstants } from '../app-constants';
 import { User } from '../model/user';
+import { UserReport } from '../model/UserReport';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,15 @@ export class UsuarioService {
     });
   }
 
+
+    downloadPdfRelatorioParan(userreport: UserReport) {
+
+    return this.http.post(AppConstants.baseUrl + 'relatorio/', userreport, { responseType: 'text' }).subscribe(data => {
+      document.querySelector('iframe').src = data;
+
+    });
+
+  }
 
 
 }

@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="sair()">Sair</a> 
@@ -14,10 +14,10 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/usuarioList']" routerLinkActive="router-link-active">Lista</a>
-          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" [routerLink]="['/usuarioList']" routerLinkActive="router-link-active">Lista Usuarios</a>
+          <a class="dropdown-item" [routerLink]="['/userReport']" routerLinkActive="router-link-active">Relatorio Usuarios</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Link 3</a>
+          <a class="dropdown-item" [routerLink]="['/chart']" routerLinkActive="router-link-active">Grafico</a>
         </div>
       </li>
     </ul>

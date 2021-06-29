@@ -1,0 +1,54 @@
+<h3>Tela Relatorio Usuario</h3>
+
+<form style="padding: 10px;" #formValidate="ngForm">
+
+
+	
+
+	<div class="form-row">
+		<div class="form-group col-md-2">
+			<label for="salarioInicio">Salario Inicio:</label>
+			<input type="text" [(ngModel)]="userReport.salarioInicio" class="form-control" id="salarioInicio" name="salarioInicio" autocomplete="false"
+			currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+		</div>
+
+		<div class="form-group col-md-2">
+			<label for="salarioFim">Salario Fim:</label>
+			<input type="text" [(ngModel)]="userReport.salarioFim" class="form-control" id="salarioFim" name="salarioFim" autocomplete="false"
+			currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+		</div>
+
+	</div>	
+	
+	
+
+	<!-- Button trigger modal -->
+	<div class="form-row">
+		<div class="form-group col-md-3">
+			<button (click)="imprimeRelatorio()" type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal2" style="margin-left: 5px;">Imprimir PDF</button>
+			<button type="button" (click)="novo()" class="btn btn-primary mb-2" style="margin-left: 5px;">Novo</button>	
+		</div>
+	</div>
+
+</form>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="min-width: 60%; min-height: 60%; height: 90%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Relatorio PDF PARAMS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdf" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
